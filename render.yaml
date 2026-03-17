@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: zakir-auth-service
+    runtime: docker
+    rootDir: backend/auth-service
+    plan: free
+    envVars:
+      - key: DB_URL
+        value: jdbc:postgresql://ep-curly-butterfly-anzakonw.c-6.us-east-1.aws.neon.tech/ott_auth?sslmode=require
+      - key: DB_USERNAME
+        value: neondb_owner
+      - key: DB_PASSWORD
+        value: npg_Uf6DcEP9ymGT
+
+  - type: web
+    name: zakir-core-service
+    runtime: docker
+    rootDir: backend/core-service
+    plan: free
+    envVars:
+      - key: DB_URL
+        value: jdbc:postgresql://ep-curly-butterfly-anzakonw.c-6.us-east-1.aws.neon.tech/ott_core?sslmode=require
+      - key: DB_USERNAME
+        value: neondb_owner
+      - key: DB_PASSWORD
+        value: npg_Uf6DcEP9ymGT
