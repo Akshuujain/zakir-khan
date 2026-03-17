@@ -1,9 +1,11 @@
 services:
   - type: web
     name: zakir-auth-service
-    runtime: docker
+    env: docker
     rootDir: backend/auth-service
     plan: free
+    branch: main
+    healthCheckPath: /swagger-ui.html
     envVars:
       - key: DB_URL
         value: jdbc:postgresql://ep-curly-butterfly-anzakonw.c-6.us-east-1.aws.neon.tech/ott_auth?sslmode=require
@@ -14,9 +16,11 @@ services:
 
   - type: web
     name: zakir-core-service
-    runtime: docker
+    env: docker
     rootDir: backend/core-service
     plan: free
+    branch: main
+    healthCheckPath: /swagger-ui.html
     envVars:
       - key: DB_URL
         value: jdbc:postgresql://ep-curly-butterfly-anzakonw.c-6.us-east-1.aws.neon.tech/ott_core?sslmode=require
